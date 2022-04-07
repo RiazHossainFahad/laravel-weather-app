@@ -17,9 +17,9 @@ class RolePermissionSeeder extends Seeder
     public function run()
     {
         $parent_permissions = [
-            "Weather",
             "Role",
             "User",
+            "Weather Record",
         ];
         $child_permissions = array(
             'Role' => array(
