@@ -38,9 +38,11 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         @auth
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.roles.index') }}">{{ __('Roles') }}</a>
-                            </li>
+                            @can('Role')
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('admin.roles.index') }}">{{ __('Roles') }}</a>
+                                </li>
+                            @endcan
                         @endauth
                     </ul>
 

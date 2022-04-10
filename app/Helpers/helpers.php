@@ -1,5 +1,13 @@
 <?php
 
+use Carbon\Carbon;
+
+if (!function_exists('formatDate')) {
+    function formatDate($datetime = null, $format = "Y-m-d g:i A")
+    {
+        return Carbon::parse($datetime ?? now())->format($format);
+    }
+}
 
 if (!function_exists('checkPermission')) {
     function checkPermission($permission)

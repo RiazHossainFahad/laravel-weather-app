@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\RolePermission\RoleController;
+use App\Http\Controllers\Admin\Weather\WeatherHistoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,16 +17,17 @@ use App\Http\Controllers\Admin\RolePermission\RoleController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'welcome']);
 
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
 
     Route::as('admin.')->group(function () {
         Route::resource('roles', RoleController::class)->parameters(['roles' => 'id']);
+        Route::resource('weather-histories', WeatherHistoryController::class)->only([
+            'edit', 'update', 'destroy'
+        ])->parameters(['weather-histories' => 'id']);
     });
 });

@@ -2054,10 +2054,10 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/role/RoleFormComponent.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/role/RoleFormComponent.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/role-permission/role/RoleFormComponent.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/role-permission/role/RoleFormComponent.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2296,7 +2296,6 @@ __webpack_require__.r(__webpack_exports__);
       return name.replace(/ /g, "-");
     },
     allPermissionCheck: function allPermissionCheck() {
-      console.log("allPermissionCheck");
       var self = this;
       var allPermission = self.form_data.all_permission;
 
@@ -2394,7 +2393,6 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     checkAllPermissionCheckedOrNot: function checkAllPermissionCheckedOrNot() {
-      console.log("checkAllPermissionCheckedOrNot");
       var self = this;
       self.$nextTick(function () {
         var child_permission = $(".child-permission");
@@ -2454,6 +2452,318 @@ __webpack_require__.r(__webpack_exports__);
 
         if (res.data.status == "success") {
           window.location = "/roles";
+        }
+      })["catch"](function (err) {
+        self.showToastMessage("Something went wrong! Please try again.", "error");
+        console.log(err);
+      })["finally"](function () {
+        self.is_loading = false;
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/weather/history/WeatherHistoryFormComponent.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/weather/history/WeatherHistoryFormComponent.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var _components_shared_error_RequiredComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/components/shared/error/RequiredComponent */ "./resources/js/components/shared/error/RequiredComponent.vue");
+/* harmony import */ var _components_shared_error_MinlengthComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/shared/error/MinlengthComponent */ "./resources/js/components/shared/error/MinlengthComponent.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "WeatherHistoryFormComponent",
+  components: {
+    RequiredComponent: _components_shared_error_RequiredComponent__WEBPACK_IMPORTED_MODULE_0__["default"],
+    MinlengthComponent: _components_shared_error_MinlengthComponent__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  props: {
+    is_edit: {
+      type: Boolean,
+      "default": false
+    },
+    model_data: {
+      type: Object,
+      "default": {}
+    },
+    all_cities: {
+      type: Array,
+      "default": []
+    }
+  },
+  data: function data() {
+    return {
+      form_data: {
+        city: null,
+        lat: null,
+        lon: null,
+        weather_condition: null,
+        temperature: null,
+        temperature_feel_like: null,
+        humidity: null,
+        wind_speed: null
+      },
+      cities: [],
+      show_error: false,
+      is_loading: false
+    };
+  },
+  validations: {
+    form_data: {
+      city: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__.required,
+        minLength: (0,vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__.minLength)(3)
+      },
+      lat: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__.required
+      },
+      lon: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__.required
+      },
+      weather_condition: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__.required
+      },
+      temperature: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__.required
+      },
+      temperature_feel_like: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__.required
+      },
+      humidity: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__.required
+      },
+      wind_speed: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__.required
+      }
+    }
+  },
+  mounted: function mounted() {
+    this.cities = this.all_cities;
+
+    if (this.is_edit) {
+      this.form_data = this.model_data;
+    }
+  },
+  methods: {
+    submitForm: function submitForm() {
+      var self = this;
+      self.$v.$touch();
+
+      if (self.$v.$invalid) {
+        self.show_error = true;
+        return;
+      } else {
+        self.show_error = false;
+      }
+
+      self.is_loading = true;
+      self.form_data._method = self.is_edit ? "PUT" : "POST";
+      var url = self.is_edit ? "/weather-histories/".concat(self.model_data.id) : "/weather-histories";
+      var FormData_obj = window.convertToFormData(self.form_data);
+      axios.post(url, FormData_obj).then(function (res) {
+        self.showToastMessage(res.data.message, res.data.status);
+
+        if (res.data.status == "success") {
+          window.location = "/";
         }
       })["catch"](function (err) {
         self.showToastMessage("Something went wrong! Please try again.", "error");
@@ -2677,10 +2987,10 @@ window.convertToFormData = function (obj, form, namespace) {
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/role/RoleFormComponent.vue?vue&type=style&index=0&id=4b239555&scoped=true&lang=css&":
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/role/RoleFormComponent.vue?vue&type=style&index=0&id=4b239555&scoped=true&lang=css& ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/role-permission/role/RoleFormComponent.vue?vue&type=style&index=0&id=cb487004&scoped=true&lang=css&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/role-permission/role/RoleFormComponent.vue?vue&type=style&index=0&id=cb487004&scoped=true&lang=css& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2688,13 +2998,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
 // Imports
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.all-permission-heading[data-v-4b239555] {\r\n  position: relative;\n}\n.all-permission-heading input[type=\"checkbox\"][data-v-4b239555] {\r\n  position: absolute;\r\n  left: 50%;\r\n  margin-top: 0;\r\n  top: 50%;\r\n  transform: translate(-50%, -50%);\r\n  opacity: 1;\r\n  pointer-events: fill;\n}\n.card-header input[type=\"checkbox\"][data-v-4b239555] {\r\n  position: absolute;\r\n  left: 50%;\r\n  margin-top: 8px;\r\n  transform: translate(-50%, -50%);\r\n  opacity: 1;\r\n  pointer-events: fill;\n}\n.list-group-item input[type=\"checkbox\"][data-v-4b239555] {\r\n  position: absolute;\r\n  left: 50%;\r\n  margin-top: 8px;\r\n  transform: translate(-50%, -50%);\r\n  opacity: 1;\r\n  pointer-events: fill;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.all-permission-heading[data-v-cb487004] {\r\n  position: relative;\n}\n.all-permission-heading input[type=\"checkbox\"][data-v-cb487004] {\r\n  position: absolute;\r\n  left: 50%;\r\n  margin-top: 0;\r\n  top: 50%;\r\n  transform: translate(-50%, -50%);\r\n  opacity: 1;\r\n  pointer-events: fill;\n}\n.card-header input[type=\"checkbox\"][data-v-cb487004] {\r\n  position: absolute;\r\n  left: 50%;\r\n  margin-top: 8px;\r\n  transform: translate(-50%, -50%);\r\n  opacity: 1;\r\n  pointer-events: fill;\n}\n.list-group-item input[type=\"checkbox\"][data-v-cb487004] {\r\n  position: absolute;\r\n  left: 50%;\r\n  margin-top: 8px;\r\n  transform: translate(-50%, -50%);\r\n  opacity: 1;\r\n  pointer-events: fill;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -20196,10 +20506,10 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/role/RoleFormComponent.vue?vue&type=style&index=0&id=4b239555&scoped=true&lang=css&":
-/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/role/RoleFormComponent.vue?vue&type=style&index=0&id=4b239555&scoped=true&lang=css& ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/role-permission/role/RoleFormComponent.vue?vue&type=style&index=0&id=cb487004&scoped=true&lang=css&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/role-permission/role/RoleFormComponent.vue?vue&type=style&index=0&id=cb487004&scoped=true&lang=css& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -20207,9 +20517,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RoleFormComponent_vue_vue_type_style_index_0_id_4b239555_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RoleFormComponent.vue?vue&type=style&index=0&id=4b239555&scoped=true&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/role/RoleFormComponent.vue?vue&type=style&index=0&id=4b239555&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RoleFormComponent_vue_vue_type_style_index_0_id_cb487004_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RoleFormComponent.vue?vue&type=style&index=0&id=cb487004&scoped=true&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/role-permission/role/RoleFormComponent.vue?vue&type=style&index=0&id=cb487004&scoped=true&lang=css&");
 
             
 
@@ -20218,11 +20528,11 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RoleFormComponent_vue_vue_type_style_index_0_id_4b239555_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RoleFormComponent_vue_vue_type_style_index_0_id_cb487004_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RoleFormComponent_vue_vue_type_style_index_0_id_4b239555_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RoleFormComponent_vue_vue_type_style_index_0_id_cb487004_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -20505,10 +20815,10 @@ module.exports = function (list, options) {
 
 /***/ }),
 
-/***/ "./resources/js/components/role/RoleFormComponent.vue":
-/*!************************************************************!*\
-  !*** ./resources/js/components/role/RoleFormComponent.vue ***!
-  \************************************************************/
+/***/ "./resources/js/components/admin/role-permission/role/RoleFormComponent.vue":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/admin/role-permission/role/RoleFormComponent.vue ***!
+  \**********************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -20516,10 +20826,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _RoleFormComponent_vue_vue_type_template_id_4b239555_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RoleFormComponent.vue?vue&type=template&id=4b239555&scoped=true& */ "./resources/js/components/role/RoleFormComponent.vue?vue&type=template&id=4b239555&scoped=true&");
-/* harmony import */ var _RoleFormComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RoleFormComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/role/RoleFormComponent.vue?vue&type=script&lang=js&");
-/* harmony import */ var _RoleFormComponent_vue_vue_type_style_index_0_id_4b239555_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./RoleFormComponent.vue?vue&type=style&index=0&id=4b239555&scoped=true&lang=css& */ "./resources/js/components/role/RoleFormComponent.vue?vue&type=style&index=0&id=4b239555&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _RoleFormComponent_vue_vue_type_template_id_cb487004_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RoleFormComponent.vue?vue&type=template&id=cb487004&scoped=true& */ "./resources/js/components/admin/role-permission/role/RoleFormComponent.vue?vue&type=template&id=cb487004&scoped=true&");
+/* harmony import */ var _RoleFormComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RoleFormComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/role-permission/role/RoleFormComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _RoleFormComponent_vue_vue_type_style_index_0_id_cb487004_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./RoleFormComponent.vue?vue&type=style&index=0&id=cb487004&scoped=true&lang=css& */ "./resources/js/components/admin/role-permission/role/RoleFormComponent.vue?vue&type=style&index=0&id=cb487004&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -20530,18 +20840,57 @@ __webpack_require__.r(__webpack_exports__);
 
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _RoleFormComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _RoleFormComponent_vue_vue_type_template_id_4b239555_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
-  _RoleFormComponent_vue_vue_type_template_id_4b239555_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _RoleFormComponent_vue_vue_type_template_id_cb487004_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _RoleFormComponent_vue_vue_type_template_id_cb487004_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
-  "4b239555",
+  "cb487004",
   null
   
 )
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/role/RoleFormComponent.vue"
+component.options.__file = "resources/js/components/admin/role-permission/role/RoleFormComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/weather/history/WeatherHistoryFormComponent.vue":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/admin/weather/history/WeatherHistoryFormComponent.vue ***!
+  \***************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _WeatherHistoryFormComponent_vue_vue_type_template_id_67162bc8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./WeatherHistoryFormComponent.vue?vue&type=template&id=67162bc8&scoped=true& */ "./resources/js/components/admin/weather/history/WeatherHistoryFormComponent.vue?vue&type=template&id=67162bc8&scoped=true&");
+/* harmony import */ var _WeatherHistoryFormComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./WeatherHistoryFormComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/weather/history/WeatherHistoryFormComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _WeatherHistoryFormComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _WeatherHistoryFormComponent_vue_vue_type_template_id_67162bc8_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _WeatherHistoryFormComponent_vue_vue_type_template_id_67162bc8_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "67162bc8",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin/weather/history/WeatherHistoryFormComponent.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -20663,10 +21012,10 @@ component.options.__file = "resources/js/components/shared/error/RequiredCompone
 
 /***/ }),
 
-/***/ "./resources/js/components/role/RoleFormComponent.vue?vue&type=script&lang=js&":
-/*!*************************************************************************************!*\
-  !*** ./resources/js/components/role/RoleFormComponent.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************************/
+/***/ "./resources/js/components/admin/role-permission/role/RoleFormComponent.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************!*\
+  !*** ./resources/js/components/admin/role-permission/role/RoleFormComponent.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -20674,8 +21023,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RoleFormComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RoleFormComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/role/RoleFormComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RoleFormComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RoleFormComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/role-permission/role/RoleFormComponent.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RoleFormComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/weather/history/WeatherHistoryFormComponent.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************!*\
+  !*** ./resources/js/components/admin/weather/history/WeatherHistoryFormComponent.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_WeatherHistoryFormComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./WeatherHistoryFormComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/weather/history/WeatherHistoryFormComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_WeatherHistoryFormComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -20727,32 +21092,49 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/role/RoleFormComponent.vue?vue&type=style&index=0&id=4b239555&scoped=true&lang=css&":
-/*!*********************************************************************************************************************!*\
-  !*** ./resources/js/components/role/RoleFormComponent.vue?vue&type=style&index=0&id=4b239555&scoped=true&lang=css& ***!
-  \*********************************************************************************************************************/
+/***/ "./resources/js/components/admin/role-permission/role/RoleFormComponent.vue?vue&type=style&index=0&id=cb487004&scoped=true&lang=css&":
+/*!*******************************************************************************************************************************************!*\
+  !*** ./resources/js/components/admin/role-permission/role/RoleFormComponent.vue?vue&type=style&index=0&id=cb487004&scoped=true&lang=css& ***!
+  \*******************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RoleFormComponent_vue_vue_type_style_index_0_id_4b239555_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RoleFormComponent.vue?vue&type=style&index=0&id=4b239555&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/role/RoleFormComponent.vue?vue&type=style&index=0&id=4b239555&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RoleFormComponent_vue_vue_type_style_index_0_id_cb487004_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/style-loader/dist/cjs.js!../../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RoleFormComponent.vue?vue&type=style&index=0&id=cb487004&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/role-permission/role/RoleFormComponent.vue?vue&type=style&index=0&id=cb487004&scoped=true&lang=css&");
 
 
 /***/ }),
 
-/***/ "./resources/js/components/role/RoleFormComponent.vue?vue&type=template&id=4b239555&scoped=true&":
-/*!*******************************************************************************************************!*\
-  !*** ./resources/js/components/role/RoleFormComponent.vue?vue&type=template&id=4b239555&scoped=true& ***!
-  \*******************************************************************************************************/
+/***/ "./resources/js/components/admin/role-permission/role/RoleFormComponent.vue?vue&type=template&id=cb487004&scoped=true&":
+/*!*****************************************************************************************************************************!*\
+  !*** ./resources/js/components/admin/role-permission/role/RoleFormComponent.vue?vue&type=template&id=cb487004&scoped=true& ***!
+  \*****************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RoleFormComponent_vue_vue_type_template_id_4b239555_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RoleFormComponent_vue_vue_type_template_id_4b239555_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RoleFormComponent_vue_vue_type_template_id_cb487004_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RoleFormComponent_vue_vue_type_template_id_cb487004_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RoleFormComponent_vue_vue_type_template_id_4b239555_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RoleFormComponent.vue?vue&type=template&id=4b239555&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/role/RoleFormComponent.vue?vue&type=template&id=4b239555&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RoleFormComponent_vue_vue_type_template_id_cb487004_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RoleFormComponent.vue?vue&type=template&id=cb487004&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/role-permission/role/RoleFormComponent.vue?vue&type=template&id=cb487004&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/weather/history/WeatherHistoryFormComponent.vue?vue&type=template&id=67162bc8&scoped=true&":
+/*!**********************************************************************************************************************************!*\
+  !*** ./resources/js/components/admin/weather/history/WeatherHistoryFormComponent.vue?vue&type=template&id=67162bc8&scoped=true& ***!
+  \**********************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_WeatherHistoryFormComponent_vue_vue_type_template_id_67162bc8_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_WeatherHistoryFormComponent_vue_vue_type_template_id_67162bc8_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_WeatherHistoryFormComponent_vue_vue_type_template_id_67162bc8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./WeatherHistoryFormComponent.vue?vue&type=template&id=67162bc8&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/weather/history/WeatherHistoryFormComponent.vue?vue&type=template&id=67162bc8&scoped=true&");
 
 
 /***/ }),
@@ -20808,10 +21190,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/role/RoleFormComponent.vue?vue&type=template&id=4b239555&scoped=true&":
-/*!**********************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/role/RoleFormComponent.vue?vue&type=template&id=4b239555&scoped=true& ***!
-  \**********************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/role-permission/role/RoleFormComponent.vue?vue&type=template&id=cb487004&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/role-permission/role/RoleFormComponent.vue?vue&type=template&id=cb487004&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -21374,6 +21756,516 @@ var staticRenderFns = [
       _vm._v("Role Name "),
       _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
     ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/weather/history/WeatherHistoryFormComponent.vue?vue&type=template&id=67162bc8&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin/weather/history/WeatherHistoryFormComponent.vue?vue&type=template&id=67162bc8&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "form",
+    {
+      on: {
+        submit: function ($event) {
+          $event.preventDefault()
+          return _vm.submitForm()
+        },
+      },
+    },
+    [
+      _c("div", { staticClass: "row mt-4" }, [
+        _c("div", { staticClass: "col-md-6" }, [
+          _c("div", { staticClass: "mb-3" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "div",
+              [
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form_data.city,
+                        expression: "form_data.city",
+                      },
+                    ],
+                    staticClass: "form-control select2",
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.form_data,
+                          "city",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  _vm._l(_vm.cities, function (city, i) {
+                    return _c("option", { key: i, domProps: { value: city } }, [
+                      _vm._v(
+                        "\n              " + _vm._s(city) + "\n            "
+                      ),
+                    ])
+                  }),
+                  0
+                ),
+                _vm._v(" "),
+                _vm.show_error && !_vm.$v.form_data.city.required
+                  ? _c("required-component")
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.show_error && !_vm.$v.form_data.city.minLength
+                  ? _c("minlength-component", {
+                      attrs: {
+                        min_length: _vm.$v.form_data.city.$params.minLength.min,
+                      },
+                    })
+                  : _vm._e(),
+              ],
+              1
+            ),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-6" }, [
+          _c("div", { staticClass: "mb-3" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c(
+              "div",
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form_data.lat,
+                      expression: "form_data.lat",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "number", step: "any" },
+                  domProps: { value: _vm.form_data.lat },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.form_data, "lat", $event.target.value)
+                    },
+                  },
+                }),
+                _vm._v(" "),
+                _vm.show_error && !_vm.$v.form_data.lat.required
+                  ? _c("required-component")
+                  : _vm._e(),
+              ],
+              1
+            ),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-6" }, [
+          _c("div", { staticClass: "mb-3" }, [
+            _vm._m(2),
+            _vm._v(" "),
+            _c(
+              "div",
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form_data.lon,
+                      expression: "form_data.lon",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "number", step: "any" },
+                  domProps: { value: _vm.form_data.lon },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.form_data, "lon", $event.target.value)
+                    },
+                  },
+                }),
+                _vm._v(" "),
+                _vm.show_error && !_vm.$v.form_data.lon.required
+                  ? _c("required-component")
+                  : _vm._e(),
+              ],
+              1
+            ),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-6" }, [
+          _c("div", { staticClass: "mb-3" }, [
+            _vm._m(3),
+            _vm._v(" "),
+            _c(
+              "div",
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form_data.weather_condition,
+                      expression: "form_data.weather_condition",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.form_data.weather_condition },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.form_data,
+                        "weather_condition",
+                        $event.target.value
+                      )
+                    },
+                  },
+                }),
+                _vm._v(" "),
+                _vm.show_error && !_vm.$v.form_data.weather_condition.required
+                  ? _c("required-component")
+                  : _vm._e(),
+              ],
+              1
+            ),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-6" }, [
+          _c("div", { staticClass: "mb-3" }, [
+            _vm._m(4),
+            _vm._v(" "),
+            _c(
+              "div",
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form_data.temperature,
+                      expression: "form_data.temperature",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "number", step: "any" },
+                  domProps: { value: _vm.form_data.temperature },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.form_data,
+                        "temperature",
+                        $event.target.value
+                      )
+                    },
+                  },
+                }),
+                _vm._v(" "),
+                _vm.show_error && !_vm.$v.form_data.temperature.required
+                  ? _c("required-component")
+                  : _vm._e(),
+              ],
+              1
+            ),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-6" }, [
+          _c("div", { staticClass: "mb-3" }, [
+            _vm._m(5),
+            _vm._v(" "),
+            _c(
+              "div",
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form_data.temperature_feel_like,
+                      expression: "form_data.temperature_feel_like",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "number", step: "any" },
+                  domProps: { value: _vm.form_data.temperature_feel_like },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.form_data,
+                        "temperature_feel_like",
+                        $event.target.value
+                      )
+                    },
+                  },
+                }),
+                _vm._v(" "),
+                _vm.show_error &&
+                !_vm.$v.form_data.temperature_feel_like.required
+                  ? _c("required-component")
+                  : _vm._e(),
+              ],
+              1
+            ),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-6" }, [
+          _c("div", { staticClass: "mb-3" }, [
+            _vm._m(6),
+            _vm._v(" "),
+            _c(
+              "div",
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form_data.humidity,
+                      expression: "form_data.humidity",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "number", step: "any" },
+                  domProps: { value: _vm.form_data.humidity },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.form_data, "humidity", $event.target.value)
+                    },
+                  },
+                }),
+                _vm._v(" "),
+                _vm.show_error && !_vm.$v.form_data.humidity.required
+                  ? _c("required-component")
+                  : _vm._e(),
+              ],
+              1
+            ),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-6" }, [
+          _c("div", { staticClass: "mb-3" }, [
+            _vm._m(7),
+            _vm._v(" "),
+            _c(
+              "div",
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form_data.wind_speed,
+                      expression: "form_data.wind_speed",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "number", step: "any" },
+                  domProps: { value: _vm.form_data.wind_speed },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.form_data, "wind_speed", $event.target.value)
+                    },
+                  },
+                }),
+                _vm._v(" "),
+                _vm.show_error && !_vm.$v.form_data.wind_speed.required
+                  ? _c("required-component")
+                  : _vm._e(),
+              ],
+              1
+            ),
+          ]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row mt-3" }, [
+        _c("div", { staticClass: "col-sm-12" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-dark",
+              attrs: { type: "submit", disabled: _vm.is_loading },
+            },
+            [
+              _vm.is_loading
+                ? _c("span", [_vm._v("Loading...")])
+                : _c("span", [
+                    _vm._v(
+                      _vm._s(
+                        !_vm.is_edit
+                          ? "Create Weather Record"
+                          : "Update Weather Record"
+                      )
+                    ),
+                  ]),
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "btn btn-danger",
+              attrs: { href: "/", disabled: _vm.is_loading },
+            },
+            [_c("span", [_vm._v("Cancel")])]
+          ),
+        ]),
+      ]),
+    ]
+  )
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "form-label", attrs: { for: "city" } }, [
+      _vm._v("City "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "form-label", attrs: { for: "lat" } }, [
+      _vm._v("Latitude "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "form-label", attrs: { for: "lon" } }, [
+      _vm._v("Longitude "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      { staticClass: "form-label", attrs: { for: "weather_condition" } },
+      [
+        _vm._v("Weather Condition "),
+        _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      { staticClass: "form-label", attrs: { for: "temperature" } },
+      [
+        _vm._v("Temperature(℃) "),
+        _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      { staticClass: "form-label", attrs: { for: "temperature_feel_like" } },
+      [
+        _vm._v("Temperature(℃) feel like"),
+        _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      { staticClass: "form-label", attrs: { for: "humidity" } },
+      [
+        _vm._v("Humidity "),
+        _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      { staticClass: "form-label", attrs: { for: "wind_speed" } },
+      [
+        _vm._v("Wind Speed(km/h) "),
+        _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
+      ]
+    )
   },
 ]
 render._withStripped = true
@@ -35556,7 +36448,8 @@ exports.withParams = withParams;
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var map = {
-	"./components/role/RoleFormComponent.vue": "./resources/js/components/role/RoleFormComponent.vue",
+	"./components/admin/role-permission/role/RoleFormComponent.vue": "./resources/js/components/admin/role-permission/role/RoleFormComponent.vue",
+	"./components/admin/weather/history/WeatherHistoryFormComponent.vue": "./resources/js/components/admin/weather/history/WeatherHistoryFormComponent.vue",
 	"./components/shared/error/InvalidComponent.vue": "./resources/js/components/shared/error/InvalidComponent.vue",
 	"./components/shared/error/MinlengthComponent.vue": "./resources/js/components/shared/error/MinlengthComponent.vue",
 	"./components/shared/error/RequiredComponent.vue": "./resources/js/components/shared/error/RequiredComponent.vue"
