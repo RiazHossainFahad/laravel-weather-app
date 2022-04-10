@@ -1,0 +1,28 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-12 mt-4">
+            <div class="card border-0 rounded shadow p-4">
+                <div class="d-md-flex justify-content-between align-items-center mb-3">
+                    <h5>Edit User</h5>
+                </div>
+                
+                <user-form-component 
+                    :is_edit="true"
+                    :model_data='@json($user)'
+                    :all_roles='@json($all_roles, true)'
+                />
+    
+            </div>
+        </div><!--end col-->
+    </div><!--end row-->
+</div>
+@endsection
+
+@push('css')
+@endpush
+
+@push('js')
+@endpush

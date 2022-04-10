@@ -43,6 +43,11 @@
                                     <a class="nav-link" href="{{ route('admin.roles.index') }}">{{ __('Roles') }}</a>
                                 </li>
                             @endcan
+                            @can('User')
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('admin.users.index') }}">{{ __('Users') }}</a>
+                                </li>
+                            @endcan
                         @endauth
                     </ul>
 

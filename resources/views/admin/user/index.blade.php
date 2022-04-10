@@ -6,10 +6,10 @@
         <div class="col-12 mt-4">
             <div class="card border-0 rounded shadow p-4">
                 <div class="d-md-flex justify-content-between align-items-center mb-3">
-                    <h5>Role List</h5>
+                    <h5>User List</h5>
     
-                    @can('create_role')
-                        <a href="{{ route('admin.roles.create') }}" class="btn btn-info mt-2 text-white"> Create Role</a>
+                    @can('create_user')
+                        <a href="{{ route('admin.users.create') }}" class="btn btn-info mt-2 text-white"> Create User</a>
                     @endcan
                 </div>
     

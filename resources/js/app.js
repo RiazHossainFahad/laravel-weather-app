@@ -2,11 +2,12 @@ require('./bootstrap');
 import Vue from 'vue'
 window.Vue = Vue
 import Vuelidate from 'vuelidate'
-
+import Select2 from 'v-select2-component';
 
 Vue.use(Vuelidate)
 
 // Package Components
+Vue.component('Select2', Select2);
 
 require('@/helpers/ObjectToFormData');
 

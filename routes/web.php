@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\User\UserController;
 use App\Http\Controllers\Admin\RolePermission\RoleController;
 use App\Http\Controllers\Admin\Weather\WeatherHistoryController;
 
@@ -26,6 +27,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::as('admin.')->group(function () {
         Route::resource('roles', RoleController::class)->parameters(['roles' => 'id']);
+        Route::resource('users', UserController::class)->parameters(['users' => 'id']);
         Route::resource('weather-histories', WeatherHistoryController::class)->only([
             'edit', 'update', 'destroy'
         ])->parameters(['weather-histories' => 'id']);
